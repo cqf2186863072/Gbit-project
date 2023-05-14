@@ -87,8 +87,7 @@ public class FlyingBullet : Enemy
         if (bullet != null)
         {
             bullet.gameObject.SetActive(true);
-            bullet.transform.SetParent(transform);
-            bullet.Init(1.7f, 0.6f);
+            bullet.Init(transform.position, 1.7f, 0.6f);
         }
     }
 

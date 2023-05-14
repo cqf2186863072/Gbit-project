@@ -8,15 +8,15 @@ public class Bullet : FlyingBullet
     public Vector2 direction;
     public float speed;
     public float speedFactor;
+    public Vector3 directionOffset;
 
-    public void Init(float speed, float speedFactor)
+    public void Init(Vector3 position, float speed, float speedFactor)
     {
         this.speed = speed;
         this.speedFactor = speedFactor;
-        transform.position = transform.parent.position;
-        this.direction = player.transform.position - transform.position;
-        Debug.Log(transform.position);
-        Debug.Log(transform.parent.position);
+        transform.position = position;
+        directionOffset = Vector3.one * 1.5f;
+        this.direction = player.transform.position - transform.position + directionOffset;
     }
 
     private void Update()
