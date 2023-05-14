@@ -5,10 +5,19 @@ using EnemyController;
 
 public class Bullet : FlyingBullet
 {
-    //public GameObject FlyingBullet;
     public Vector2 direction;
     public float speed;
     public float speedFactor;
+
+    public void Init(float speed, float speedFactor)
+    {
+        this.speed = speed;
+        this.speedFactor = speedFactor;
+        transform.position = transform.parent.position;
+        this.direction = player.transform.position - transform.position;
+        Debug.Log(transform.position);
+        Debug.Log(transform.parent.position);
+    }
 
     private void Update()
     {

@@ -7,7 +7,7 @@ public class InfiniteTerrain : MonoBehaviour
     [SerializeField] private GameObject[] prefabList;
     private int maxTerrains = 3;
     private float spawn_X_Tr = 0;
-    private float terrainLength = 20f;
+    private float terrainLength = 40f;
     private Queue<GameObject> activeTerrains;
     private Queue<int> usedTerrainIndices;
 

@@ -10,7 +10,7 @@ public class FlyingBullet : Enemy
         enemyEnergy = 1;
         attackScale = 10;
         maxInterval = 20;
-        currentInterval = 0;
+        currentInterval = maxInterval * 0.5f;
         player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
     }
@@ -56,15 +56,6 @@ public class FlyingBullet : Enemy
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-	{
-        PlayerController controller = other.GetComponent<PlayerController>();
-        if(controller != null)
-		{
-            Damage(1);
-		}
-    }
-    
     void Idle()
 	{
         animator.SetBool("Attack", false);
@@ -84,6 +75,12 @@ public class FlyingBullet : Enemy
 		}
 	}
 
+    void Dead()
+	{
+        //TODO:anim
+        Destroy(gameObject);
+	}
+
     void Shoot()
     {
         Bullet bullet = BulletPool.Instance.GetFromPool();
@@ -91,19 +88,9 @@ public class FlyingBullet : Enemy
         {
             bullet.gameObject.SetActive(true);
             bullet.transform.SetParent(transform);
-            bullet.transform.position = transform.position + Vector3.up * 0.5f;
-            bullet.direction = (player.transform.position - transform.position);
-            bullet.speed = 2;
-            bullet.speedFactor = 0.5f;
+            bullet.Init(1.7f, 0.6f);
         }
     }
-        
 
-
-    void Dead()
-	{
-        //TODO:anim
-        Destroy(gameObject);
-	}
 
 }

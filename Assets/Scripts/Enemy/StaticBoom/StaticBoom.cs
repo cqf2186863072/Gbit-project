@@ -42,17 +42,8 @@ public class StaticBoom : Enemy
                 break;
         }
     }
-    
-    public void OnTrigger()
-	{
-        if(enemyEnergy < 1 && enemyState.CurrentState == EnemyState.State.Alert)
-		{
-            //TODO:damage
-            enemyState.CurrentState = EnemyState.State.Dead;
-		}
-    }
 
-    void Idle()
+	void Idle()
     {
 
     }

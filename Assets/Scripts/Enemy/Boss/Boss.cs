@@ -8,7 +8,7 @@ public class Boss : Enemy
 
     void Awake()
     {
-        bossState = new BossState();
+        bossState = gameObject.AddComponent<BossState>();
         animator = GetComponent<Animator>();
 
     }
