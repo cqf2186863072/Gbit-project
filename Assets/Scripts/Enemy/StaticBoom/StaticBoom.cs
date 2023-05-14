@@ -5,7 +5,7 @@ public class StaticBoom : Enemy
 {
     void Awake()
     {
-        enemyState = new EnemyState();
+        enemyState = gameObject.AddComponent<EnemyState>();
         enemyEnergy = 1;
         animator = GetComponent<Animator>();
     }

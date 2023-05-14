@@ -6,7 +6,7 @@ public class FlyingBullet : Enemy
 {
     void Awake()
     {
-        enemyState = new EnemyState();
+        enemyState = gameObject.AddComponent<EnemyState>();
         enemyEnergy = 1;
         attackScale = 10;
         maxInterval = 20;
